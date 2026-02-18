@@ -2,22 +2,24 @@
   <div class="container">
     <h1>Database Test</h1>
     
-    <div>
-      <h2>Config Check:</h2>
-      <p>Supabase URL: {{ config.public.supabaseUrl || 'MISSING' }}</p>
-      <p>Supabase Key: {{ config.public.supabaseKey ? 'Present' : 'MISSING' }}</p>
-      <p>Supabase client exists: {{ $supabase ? 'Yes' : 'No' }}</p>
-      <p>Supabase client type: {{ typeof $supabase }}</p>
+    <div v-if="error">
+      <p style="color: red;">Error: {{ error.message }}</p>
     </div>
     
-    <div v-if="errorMsg">
-      <p style="color: red;">Error: {{ errorMsg }}</p>
+    <div v-else-if="venues && venues.length > 0">
+      <h2>Venues from database:</h2>
+      <ul>
+        <li v-for="venue in venues" :key="venue.id">
+          {{ venue.name }} - {{ venue.neighborhood || 'No neighborhood' }}
+        </li>
+      </ul>
     </div>
     
-    <div v-else-if="venues">
-      <h2>Success! Venues:</h2>
-      <pre>{{ venues }}</pre>
-    </div>
+    <p v-else-if="venues">
+      ✓ Connection works! No venues in database yet.
+    </p>
+    
+    <p v-else>Loading...</p>
     
     <footer>
       <a href="/">Back to home</a>
@@ -26,32 +28,15 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig()
-const { $supabase } = useNuxtApp()
+const supabase = useSupabaseClient()
 
-let errorMsg = ref(null)
-let venues = ref(null)
-
-onMounted(async () => {
-  try {
-    console.log('Supabase client:', $supabase)
-    console.log('Attempting query...')
-    
-    const { data, error } = await $supabase
-      .from('venues')
-      .select('*')
-    
-    console.log('Query result:', { data, error })
-    
-    if (error) {
-      errorMsg.value = error.message
-    } else {
-      venues.value = data
-    }
-  } catch (e) {
-    console.error('Caught error:', e)
-    errorMsg.value = e.message
-  }
+const { data: venues, error } = await useAsyncData('venues', async () => {
+  const { data, error } = await supabase
+    .from('venues')
+    .select('*')
+  
+  if (error) throw error
+  return data
 })
 </script>
 
@@ -61,14 +46,24 @@ onMounted(async () => {
   max-width: 640px;
 }
 
-h1, h2 {
-  margin-bottom: 16px;
+h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
 }
 
-pre {
-  background: #f5f5f5;
-  padding: 12px;
-  overflow-x: auto;
+h2 {
+  font-size: 18px;
+  margin: 24px 0 12px;
+}
+
+ul {
+  list-style: none;
+  margin: 12px 0;
+}
+
+li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
 }
 
 footer {
@@ -79,5 +74,10 @@ a {
   color: #c0392b;
   text-decoration: none;
   border-bottom: 1px solid #c0392b;
+}
+
+a:hover {
+  background: #c0392b;
+  color: #fff;
 }
 </style>
