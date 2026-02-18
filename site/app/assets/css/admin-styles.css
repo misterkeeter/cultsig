@@ -1,0 +1,619 @@
+/* Cultsig Admin Interface Styles */
+
+/* Base Styles */
+.admin-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header */
+.admin-header {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.admin-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0;
+}
+
+.admin-header p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-header-email {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+/* Buttons */
+.admin-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+  font-weight: 500;
+}
+
+.admin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-btn-primary {
+  background-color: #dc2626;
+  color: white;
+}
+
+.admin-btn-primary:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.admin-btn-secondary {
+  background-color: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.admin-btn-secondary:hover:not(:disabled) {
+  background-color: #f9fafb;
+}
+
+.admin-btn-success {
+  background-color: #059669;
+  color: white;
+}
+
+.admin-btn-success:hover:not(:disabled) {
+  background-color: #047857;
+}
+
+.admin-btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.admin-btn-danger:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.admin-btn-gray {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.admin-btn-gray:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+/* Login Form */
+.admin-login-container {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.admin-login-form {
+  max-width: 400px;
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.admin-login-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.admin-login-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-login-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Form Elements */
+.admin-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.admin-input, .admin-select, .admin-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+
+.admin-input:focus, .admin-select:focus, .admin-textarea:focus {
+  outline: none;
+  border-color: #dc2626;
+}
+
+.admin-textarea {
+  resize: vertical;
+}
+
+/* Main Content */
+.admin-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Stats Grid */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-stat-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.admin-stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.admin-stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.admin-stat-pending {
+  color: #d97706;
+}
+
+.admin-stat-approved {
+  color: #059669;
+}
+
+.admin-stat-rejected {
+  color: #dc2626;
+}
+
+.admin-stat-total {
+  color: #2563eb;
+}
+
+/* Filters Section */
+.admin-filters {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-filters-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-filters-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+}
+
+.admin-filters-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Submissions List */
+.admin-submissions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-submission-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.admin-submission-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.admin-submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.admin-submission-content {
+  flex: 1;
+}
+
+.admin-submission-title-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.admin-submission-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.admin-submission-meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.admin-submission-meta div {
+  margin-bottom: 0.25rem;
+}
+
+.admin-submission-description {
+  color: #374151;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.admin-submission-footer {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.admin-submission-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 100px;
+}
+
+.admin-pending-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Status Badges */
+.admin-status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.admin-status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.admin-status-approved {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.admin-status-rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Rejection Reason */
+.admin-rejection-reason {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fef2f2;
+  border-left: 4px solid #f87171;
+  border-radius: 0 4px 4px 0;
+}
+
+.admin-rejection-text {
+  font-size: 0.875rem;
+  color: #b91c1c;
+  margin: 0;
+}
+
+/* Empty State */
+.admin-empty-state {
+  text-align: center;
+  padding: 3rem 0;
+  color: #9ca3af;
+}
+
+/* Modals */
+.admin-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.admin-modal {
+  background-color: white;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.admin-modal-small {
+  max-width: 400px;
+}
+
+.admin-modal-content {
+  padding: 1.5rem;
+}
+
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.admin-modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.admin-modal-close {
+  color: #9ca3af;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.admin-modal-close:hover {
+  color: #6b7280;
+}
+
+.admin-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.admin-modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-modal-section-title {
+  font-weight: 500;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.admin-modal-info-box {
+  background-color: #f9fafb;
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+.admin-modal-info-box div {
+  margin-bottom: 0.5rem;
+}
+
+.admin-modal-info-box div:last-child {
+  margin-bottom: 0;
+}
+
+.admin-modal-description {
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.admin-modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.admin-modal-actions-pending {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Links */
+.admin-link {
+  color: #dc2626;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.admin-link:hover {
+  text-decoration: underline;
+}
+
+/* Reject Dialog */
+.admin-reject-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+
+.admin-reject-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.admin-reject-form-group {
+  margin-bottom: 1rem;
+}
+
+.admin-reject-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .admin-filters-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .admin-filters-actions {
+    justify-content: center;
+  }
+  
+  .admin-submission-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .admin-submission-actions {
+    align-self: stretch;
+  }
+  
+  .admin-pending-actions {
+    flex-direction: row;
+  }
+  
+  .admin-modal-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-modal-actions,
+  .admin-reject-actions {
+    flex-direction: column;
+  }
+  
+  .admin-modal-actions-pending {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-content {
+    padding: 1rem;
+  }
+  
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-submission-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.admin-btn:focus,
+.admin-input:focus,
+.admin-select:focus,
+.admin-textarea:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.admin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Utility classes */
+.admin-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
