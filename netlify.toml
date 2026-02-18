@@ -1,0 +1,9 @@
+[build]
+  # Where the build should start
+  base = "site"
+  
+  # The command to run (relative to 'site')
+  command = "npm run build"
+  
+  # Where the files end up (relative to the repo root)
+  publish = "site/.output/public"
