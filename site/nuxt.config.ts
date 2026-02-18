@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '/',
       callback: '/',
-      exclude: ['/', '/test']
+      exclude: ['*']
     }
   },
   pages: true,
