@@ -28,7 +28,7 @@
               type="email" 
               required
               class="admin-input"
-              placeholder="admin@cultsig.org"
+              placeholder="your@email.com"
             />
           </div>
           <div class="admin-form-group">
