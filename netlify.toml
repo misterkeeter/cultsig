@@ -1,9 +1,12 @@
 [build]
-  # We leave 'base' out to force Netlify to start in the root
+  # CRITICAL: Do NOT set 'base' here if it's failing silently.
+  # We will manually move into the folder.
   command = "cd site && npm install && npm run build"
   publish = "site/.output/public"
 
 [build.environment]
   NODE_VERSION = "20"
-  # This helps force logs to show up by treating warnings as non-blockers
-  CI = "false"
+  # This forces logs to be verbose even if the build agent is struggling
+  NETLIFY_BUILD_DEBUG = "true"
+  # Ensures Nuxt 4 uses the Netlify-specific SSR engine
+  NITRO_PRESET = "netlify"
