@@ -1,9 +1,9 @@
 [build]
-  # Where the build should start
-  base = "site"
-  
-  # The command to run (relative to 'site')
-  command = "npm run build"
-  
-  # Where the files end up (relative to the repo root)
+  # We leave 'base' out to force Netlify to start in the root
+  command = "cd site && npm install && npm run build"
   publish = "site/.output/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # This helps force logs to show up by treating warnings as non-blockers
+  CI = "false"
